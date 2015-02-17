@@ -2,11 +2,11 @@
 
 # Update Linux Kernel
 - name: update linux kernel(64bit)
-  apt: name=linux-image-amd64 default_release=wheezy-backports
+  apt: name=linux-image-amd64 default_release=wheezy-backports state=latest update_cache=yes
   when: ansible_distribution_release == 'wheezy'
 
 - name: update linux headers(64bit)
-  apt: name=linux-headers-amd64 default_release=wheezy-backports
+  apt: name=linux-headers-amd64 default_release=wheezy-backports state=latest update_cache=yes
   when: ansible_distribution_release == 'wheezy'
   
 # Reboot
