@@ -1,6 +1,8 @@
 ---
 - name: Install Ruby(debian)
-  apt: update_cache=yes
-  apt: upgrade=full
-  apt: name=ruby
-  apt: name=gem
+  apt: update_cache=yes upgrade=full name=ruby 
+  when: ansible_distribution_release == 'wheezy'
+   
+- name: Install Gem
+  apt: update_cache=yes upgrade=full name=gem
+  when: ansible_distribution_release == 'wheezy'

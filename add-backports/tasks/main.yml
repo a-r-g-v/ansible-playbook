@@ -3,12 +3,15 @@
 - name: exist wheezy-backports
   stat: path=/etc/apt/sources.list.d/wheezy-backports.list
   register: filepath
+  when: ansible_distribution_release == 'wheezy'
 
 - name: add wheezy-backports
   shell: sh -c "echo deb http://http.debian.net/debian wheezy-backports main > /etc/apt/sources.list.d/wheezy-backports.list"
+  when: ansible_distribution_release == 'wheezy'
 
 - name: update apt
   apt: upgrade=full update_cache=yes
+  when: ansible_distribution_release == 'wheezy'
 
 
 

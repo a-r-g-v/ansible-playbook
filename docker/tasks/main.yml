@@ -1,7 +1,9 @@
 ---
 - name: install curl
   apt: name=curl
+  when: ansible_distribution_release == 'wheezy'
 
 # Install Docker
 - name: install docker
   shell: curl -sSL https://get.docker.com/ | sh
+  when: ansible_distribution_release == 'wheezy'

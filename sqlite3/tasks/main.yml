@@ -1,7 +1,8 @@
 ---
 - name: Install SQLite3 (debian)
-  apt: update_cache=yes
-  apt: upgrade=full
-  apt: name=sqlite3
-  apt: name=libsqlite3-dev
+  apt: update_cache=yes upgrade=full name=sqlite3 name=libsqlite3-dev
+  when: ansible_distribution_release == 'wheezy'
 
+- name: Install libSQLite3 (debian)
+  apt: update_cache=yes upgrade=full name=libsqlite3-dev
+  when: ansible_distribution_release == 'wheezy'

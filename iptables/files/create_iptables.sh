@@ -387,10 +387,4 @@ iptables -A INPUT  -j DROP
 # 30秒間スリープしてその後 iptables をリセットする。
 # SSH が締め出されていなければ、 Ctrl-C を押せるはず。
 ###########################################################
-trap 'finailize && exit 0' 2 # Ctrl-C をトラップする
-echo "In 30 seconds iptables will be automatically reset."
-echo "Don't forget to test new SSH connection!"
-echo "If there is no problem then press Ctrl-C to finish."
-sleep 30
-echo "rollback..."
-initialize
+finailize
