@@ -1,0 +1,7 @@
+---
+- name: Install SQLite3 (debian)
+  apt: update_cache=yes
+  apt: upgrade=full
+  apt: name=sqlite3
+  apt: name=libsqlite3-dev
+

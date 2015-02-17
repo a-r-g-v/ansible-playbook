@@ -1,0 +1,9 @@
+---
+
+# create disable ipv6 file
+
+- name: run iptables shell script
+  script: create_iptables.sh
+
+- name: deploy restore iptables shell script
+  template: src=restore_iptables.sh dest=/etc/network/if-pre-up.d/iptables owner=root group=root mode=755

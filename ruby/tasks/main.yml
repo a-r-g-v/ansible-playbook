@@ -1,0 +1,6 @@
+---
+- name: Install Ruby(debian)
+  apt: update_cache=yes
+  apt: upgrade=full
+  apt: name=ruby
+  apt: name=gem

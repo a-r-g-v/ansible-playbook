@@ -1,0 +1,12 @@
+---
+- name: updates a server(apt)
+  apt: update_cache=yes upgrade=full
+  when: ansible_pkg_mgr == "apt"
+
+- name: updates a server(yum)
+  yum: update_cache=yes
+  when: ansible_pkg_mgr == "yum"
+
+- name: updates a server(pacman)
+  pacman: update_cache=yes
+  when: ansible_pkg_mgr == "pacman"

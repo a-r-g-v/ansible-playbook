@@ -1,0 +1,19 @@
+---
+
+# Update Linux Kernel
+- name: update linux kernel(64bit)
+  apt: name=linux-image-amd64
+  apt: name=linux-headers-amd64
+
+# Reboot
+# http://qiita.com/volanja/items/d38fe0678848bae6902f#2-6
+- name: reboot after
+  shell: /sbin/reboot 
+
+- name: wait for the server to go down (reboot)
+  local_action: wait_for host={{ inventory_hostname }} port=22 state=stopped
+
+- name: wait for the server to come up
+  local_action: wait_for host={{ inventory_hostname }} port=22 delay=60 timeout=120 state=started
+
+
